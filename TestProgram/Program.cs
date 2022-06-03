@@ -15,7 +15,13 @@ public class Test {
         var json = JsonConvert.SerializeObject(request);
         Debug.WriteLine(json);
 
-        golomtsdk.CreateInvoice(request);
+        try
+        {
+            golomtsdk.CreateInvoice(request);
+        } catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+        }
         Console.WriteLine(request.checksum);
     }
 }

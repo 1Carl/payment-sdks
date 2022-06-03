@@ -1,5 +1,5 @@
 
-namespace GolomtEcommerse
+namespace GolomtEcommerce
 {
 
     public abstract class Request

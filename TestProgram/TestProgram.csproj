@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\GolomtEcommerse\GolomtEcommerse.csproj" />
+    <ProjectReference Include="..\GolomtEcommerce\GolomtEcommerce.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

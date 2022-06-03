@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace GolomtEcommerse;
+namespace GolomtEcommerce;
 
 public class Utils
 {

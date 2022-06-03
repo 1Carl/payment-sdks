@@ -6,9 +6,9 @@ namespace GolomtEcommerce
 {
     public class Golomt
     {
-        Utils.Api InvoiceCreate = new Utils.Api("/api/invoice", "POST");
-        Utils.Api Inquiry = new Utils.Api("/api/inquiry", "POST");
-        Utils.Api PayByToken = new Utils.Api("/api/pay", "POST");
+        Utils.Api InvoiceCreate = new Utils.Api("/api/invoice", HttpMethod.Post);
+        Utils.Api Inquiry = new Utils.Api("/api/inquiry", HttpMethod.Post);
+        Utils.Api PayByToken = new Utils.Api("/api/pay", HttpMethod.Post);
 
         string endpoint { get; set; }
         string secret { get; set; }
@@ -25,9 +25,19 @@ namespace GolomtEcommerce
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
-            var json = JsonConvert.SerializeObject(body);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(endpoint+api.path, content).Result;
+            HttpResponseMessage response;
+
+            if (api.method == HttpMethod.Post)
+            {
+                var json = JsonConvert.SerializeObject(body);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                response = client.PostAsync(endpoint + api.path, content).Result;
+            }
+            else
+            {
+                response = client.GetAsync(endpoint + api.path).Result;
+            }
+
             if ((int)response.StatusCode != 200)
             {
                 throw new Exception("Error: " + response.Content.ReadAsStringAsync().Result);

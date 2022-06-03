@@ -1,21 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolomtEcommerse", "GolomtEcommerse\GolomtEcommerse.csproj", "{A4773C3B-1CB9-453B-97E6-264B80C54984}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GolomtEcommerce", "GolomtEcommerce\GolomtEcommerce.csproj", "{A4773C3B-1CB9-453B-97E6-264B80C54984}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{91ED4444-9631-44A2-A301-70975FB99DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProgram", "TestProgram\TestProgram.csproj", "{342A7711-A86C-4154-84AC-AB701455D9EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProgram", "TestProgram\TestProgram.csproj", "{342A7711-A86C-4154-84AC-AB701455D9EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GolomtEcommerce.Tests", "GolomtEcommerce.Tests\GolomtEcommerce.Tests.csproj", "{4B96B305-C99D-4156-8FC8-DE73FEA46A3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A4773C3B-1CB9-453B-97E6-264B80C54984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,15 @@ Global
 		{342A7711-A86C-4154-84AC-AB701455D9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{342A7711-A86C-4154-84AC-AB701455D9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{342A7711-A86C-4154-84AC-AB701455D9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B96B305-C99D-4156-8FC8-DE73FEA46A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B96B305-C99D-4156-8FC8-DE73FEA46A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B96B305-C99D-4156-8FC8-DE73FEA46A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B96B305-C99D-4156-8FC8-DE73FEA46A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE53443A-1892-42D4-80B8-A96A7B51A4DC}
 	EndGlobalSection
 EndGlobal

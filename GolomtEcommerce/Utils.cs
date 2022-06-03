@@ -17,11 +17,11 @@ public class Utils
     }
 
     public struct Api {
-        public string url;
+        public string path;
         public string method;
 
-        public Api(string url, string method) {
-            this.url = url;
+        public Api(string path, string method) {
+            this.path = path;
             this.method = method;
         }
     }

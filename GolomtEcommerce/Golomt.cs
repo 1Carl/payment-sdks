@@ -27,7 +27,7 @@ namespace GolomtEcommerce
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
             var json = JsonConvert.SerializeObject(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(endpoint, content).Result;
+            var response = client.PostAsync(endpoint+api.path, content).Result;
             if ((int)response.StatusCode != 200)
             {
                 throw new Exception("Error: " + response.Content.ReadAsStringAsync().Result);

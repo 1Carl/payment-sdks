@@ -10,6 +10,8 @@ namespace GolomtEcommerce
         {
             this.checksum = Utils.GetHMAC(secret, data);
         }
+
+        public abstract void computeHash(string secret);
     }
 
     public class CreateInvoiceRequest : Request
@@ -30,7 +32,7 @@ namespace GolomtEcommerce
             this.returnType = returnType;
         }
 
-        public void computeHash(string secret)
+        public override void computeHash(string secret)
         {
             this.computeHash(secret, transactionId + amount + returnType + callback);
         }
@@ -45,7 +47,7 @@ namespace GolomtEcommerce
             this.transactionId = transactionId;
         }
 
-        public void computeHash(string secret)
+        public override void computeHash(string secret)
         {
             this.computeHash(secret, transactionId + transactionId);
         }
@@ -69,7 +71,7 @@ namespace GolomtEcommerce
         }
 
 
-        public void computeHash(string secret)
+        public override void computeHash(string secret)
         {
             this.computeHash(secret, amount + transactionId + token);
         }

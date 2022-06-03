@@ -2,7 +2,6 @@
 using System.Text;
 using System.Net.Http.Headers;
 
-
 namespace GolomtEcommerce
 {
     public class Golomt

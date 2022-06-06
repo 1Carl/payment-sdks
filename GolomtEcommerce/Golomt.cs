@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
 using System.Net.Http.Headers;
+using GolomtEcommerce.Model;
 
 namespace GolomtEcommerce
 {
@@ -21,8 +22,9 @@ namespace GolomtEcommerce
             this.bearerToken = bearerToken;
         }
 
-        public string httpRequestGolomt(Object body, Utils.Api api)
+        public string httpRequestGolomt(Request body, Utils.Api api)
         {
+            body.computeHash(secret);
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
             HttpResponseMessage response;
@@ -45,9 +47,8 @@ namespace GolomtEcommerce
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public CreateInvoiceResponse CreateInvoice(CreateInvoiceRequest req)
+        public CreateInvoiceResponse CreateInvoice(AInvoice req)
         {
-            req.computeHash(secret);
             var result = httpRequestGolomt(req, InvoiceCreate);
             var res = JsonConvert.DeserializeObject<CreateInvoiceResponse>(result);
             if (res == null)
@@ -59,7 +60,6 @@ namespace GolomtEcommerce
 
         public InquiryResponse InquiryReq(InquiryRequest req)
         {
-            req.computeHash(secret);
             var result = httpRequestGolomt(req, Inquiry);
             var res = JsonConvert.DeserializeObject<InquiryResponse>(result);
             if (res == null)
@@ -77,7 +77,6 @@ namespace GolomtEcommerce
 
         public PayByTokenResponse PayByTokenReq(PayByTokenRequest req)
         {
-            req.computeHash(secret);
             var result = httpRequestGolomt(req, PayByToken);
             var res = JsonConvert.DeserializeObject<PayByTokenResponse>(result);
             if (res == null)

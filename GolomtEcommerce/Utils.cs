@@ -6,7 +6,7 @@ using System.Text;
 namespace GolomtEcommerce;
 
 public class Utils
-{ 
+{
     public static string GetHMAC(string key, string text)
     {
         key = key ?? "";

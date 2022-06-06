@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 using GolomtEcommerce;
 using System.Diagnostics;
 using Newtonsoft.Json;
@@ -22,6 +22,18 @@ public class Test {
         {
             Debug.WriteLine(ex.Message);
         }
+
+        try
+        {
+            InquiryResponse res = golomtsdk.InquiryReq(new InquiryRequest("123"));
+            Debug.WriteLine(JsonConvert.SerializeObject(res));
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+        }
+
+
         Console.WriteLine(request.checksum);
     }
 }

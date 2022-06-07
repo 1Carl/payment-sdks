@@ -2,6 +2,7 @@
 using System.Text;
 using System.Net.Http.Headers;
 using GolomtEcommerce.Model;
+using GolomtEcommerce.Error;
 
 namespace GolomtEcommerce
 {
@@ -42,7 +43,7 @@ namespace GolomtEcommerce
 
             if ((int)response.StatusCode != 200)
             {
-                throw new Exception("Error: " + response.Content.ReadAsStringAsync().Result);
+                throw new RemoteException("Error: " + response.Content.ReadAsStringAsync().Result);
             }
             return response.Content.ReadAsStringAsync().Result;
         }
@@ -53,7 +54,7 @@ namespace GolomtEcommerce
             var res = JsonConvert.DeserializeObject<CreateInvoiceResponse>(result);
             if (res == null)
             {
-                throw new Exception("Error: " + result);
+                throw new InternalException("Error: " + result);
             }
             return res;
         }
@@ -64,12 +65,12 @@ namespace GolomtEcommerce
             var res = JsonConvert.DeserializeObject<InquiryResponse>(result);
             if (res == null)
             {
-                throw new Exception("Error: " + result);
+                throw new InternalException("Error: " + result);
             }
 
             if (String.Equals(res.errorCode, "000"))
             {
-                throw new Exception(res.errorDesc);
+                throw new RemoteException(res.errorDesc);
             }
 
             return res;
@@ -81,11 +82,11 @@ namespace GolomtEcommerce
             var res = JsonConvert.DeserializeObject<PayByTokenResponse>(result);
             if (res == null)
             {
-                throw new Exception("Error: " + result);
+                throw new InternalException("Error: " + result);
             }
             if (String.Equals(res.errorCode, "000"))
             {
-                throw new Exception(res.errorDesc);
+                throw new RemoteException(res.errorDesc);
             }
             return res;
         }

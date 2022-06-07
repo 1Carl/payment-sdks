@@ -1,5 +1,6 @@
 // See https://aka.ms/new-console-template for more information
 using GolomtEcommerce;
+using GolomtEcommerce.Model;
 using System.Diagnostics;
 using Newtonsoft.Json;
 using System.Text;
